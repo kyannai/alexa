@@ -1,0 +1,52 @@
+{
+  "version": "string",
+  "session": {
+    "new": true,
+    "sessionId": "string",
+    "application": {
+      "applicationId": "test"
+    },
+    "attributes": {
+      "string": {}
+    },
+    "user": {
+      "userId": "string",
+      "accessToken": "string",
+      "permissions": {
+        "consentToken": "string"
+      }
+    },
+    "context": {
+      "System": {
+        "application": {
+          "applicationId": "test"
+        },
+        "user": {
+          "userId": "string",
+          "accessToken": "string",
+          "permissions": {
+            "consentToken": "string"
+          }
+        },
+        "device": {
+          "deviceId": "string",
+          "supportedInterfaces": {
+            "AudioPlayer": {}
+          }
+        },
+        "apiEndpoint": "string"
+      },
+      "AudioPlayer": {
+        "token": "string",
+        "offsetInMilliseconds": 0,
+        "playerActivity": "string"
+      }
+    }
+  },
+  "request": {
+    "type": "LaunchRequest",
+    "requestId": "testrequest",
+    "timestamp": "2017-08-26T00:01:02Z",
+    "locale": "string"
+  }
+}

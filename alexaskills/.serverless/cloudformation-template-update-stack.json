@@ -104,10 +104,10 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/alexaskills/dev/1503740681271-2017-08-26T09:44:41.271Z/alexaskills-dev.jar"
+          "S3Key": "serverless/alexaskills/dev/1503745123184-2017-08-26T10:58:43.184Z/alexaskills-dev.jar"
         },
         "FunctionName": "alexaskills-dev-sayhello",
-        "Handler": "com.kyan.alexa.skill.sayhello.Handler",
+        "Handler": "com.kyan.alexa.skill.sayhello.SayHelloHandler",
         "MemorySize": 1024,
         "Role": {
           "Fn::GetAtt": [
@@ -123,14 +123,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "SayhelloLambdaVersion1uCJcQxkL76IderRzTiVj3I500bTzYhjI00ScBbo": {
+    "SayhelloLambdaVersionu6B3JKU5hLhjBgDhgjCludvqCjOE9OWKWPskTMLg8": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "SayhelloLambdaFunction"
         },
-        "CodeSha256": "1uCJc/QxkL76IderRzTiVj/+3I500bTzYhjI00ScBbo="
+        "CodeSha256": "u6B3JK+U5hLhjBgDhgjCludvqCj+OE9OWKWPskTMLg8="
       }
     },
     "SayloveLambdaFunction": {
@@ -140,7 +140,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/alexaskills/dev/1503740681271-2017-08-26T09:44:41.271Z/alexaskills-dev.jar"
+          "S3Key": "serverless/alexaskills/dev/1503745123184-2017-08-26T10:58:43.184Z/alexaskills-dev.jar"
         },
         "FunctionName": "alexaskills-dev-saylove",
         "Handler": "com.kyan.alexa.skill.saylove.Handler",
@@ -159,14 +159,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "SayloveLambdaVersion1uCJcQxkL76IderRzTiVj3I500bTzYhjI00ScBbo": {
+    "SayloveLambdaVersionu6B3JKU5hLhjBgDhgjCludvqCjOE9OWKWPskTMLg8": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "SayloveLambdaFunction"
         },
-        "CodeSha256": "1uCJc/QxkL76IderRzTiVj/+3I500bTzYhjI00ScBbo="
+        "CodeSha256": "u6B3JK+U5hLhjBgDhgjCludvqCj+OE9OWKWPskTMLg8="
       }
     }
   },
@@ -179,13 +179,13 @@
     "SayhelloLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "SayhelloLambdaVersion1uCJcQxkL76IderRzTiVj3I500bTzYhjI00ScBbo"
+        "Ref": "SayhelloLambdaVersionu6B3JKU5hLhjBgDhgjCludvqCjOE9OWKWPskTMLg8"
       }
     },
     "SayloveLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "SayloveLambdaVersion1uCJcQxkL76IderRzTiVj3I500bTzYhjI00ScBbo"
+        "Ref": "SayloveLambdaVersionu6B3JKU5hLhjBgDhgjCludvqCjOE9OWKWPskTMLg8"
       }
     }
   }

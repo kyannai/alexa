@@ -2,8 +2,6 @@ package com.kyan.alexa.skill.saylove;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.kyan.alexa.skill.sayhello.ApiGatewayResponse;
-import com.kyan.alexa.skill.sayhello.Response;
 import org.apache.log4j.Logger;
 
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.kyan.alexa.skill.sayhello;
+package com.kyan.alexa.skill.saylove;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;

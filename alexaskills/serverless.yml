@@ -51,7 +51,7 @@ package:
 
 functions:
   sayhello:
-    handler: com.kyan.alexa.skill.sayhello.Handler
+    handler: com.kyan.alexa.skill.sayhello.SayHelloHandler
 
   saylove:
       handler: com.kyan.alexa.skill.saylove.Handler

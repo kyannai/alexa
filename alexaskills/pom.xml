@@ -14,10 +14,11 @@
   </properties>
 
   <dependencies>
+    <!-- https://mvnrepository.com/artifact/com.amazon.alexa/alexa-skills-kit -->
     <dependency>
-      <groupId>com.kyan.chatbot</groupId>
-      <artifactId>lexmodel</artifactId>
-      <version>dev</version>
+      <groupId>com.amazon.alexa</groupId>
+      <artifactId>alexa-skills-kit</artifactId>
+      <version>1.4.1</version>
     </dependency>
     <dependency>
       <groupId>com.amazonaws</groupId>

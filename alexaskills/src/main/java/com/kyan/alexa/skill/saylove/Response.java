@@ -1,4 +1,4 @@
-package com.kyan.alexa.skill.sayhello;
+package com.kyan.alexa.skill.saylove;
 
 import java.util.Map;
 
