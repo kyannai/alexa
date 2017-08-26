@@ -1,3 +1,4 @@
+```
 npm install serverless -g 
 serverless config credentials --provider aws --key [KEY] --secret [SECRET]
 
@@ -10,3 +11,4 @@ mvn clean install
 serverless deploy
 aws lambda list-functions
 serverless invoke -f hello
+```
