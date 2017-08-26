@@ -1,0 +1,192 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "The AWS CloudFormation template for this Serverless application",
+  "Resources": {
+    "ServerlessDeploymentBucket": {
+      "Type": "AWS::S3::Bucket"
+    },
+    "SayhelloLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/alexaskills-dev-sayhello"
+      }
+    },
+    "SayloveLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/alexaskills-dev-saylove"
+      }
+    },
+    "IamRoleLambdaExecution": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "lambda.amazonaws.com"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyName": {
+              "Fn::Join": [
+                "-",
+                [
+                  "dev",
+                  "alexaskills",
+                  "lambda"
+                ]
+              ]
+            },
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "logs:CreateLogStream"
+                  ],
+                  "Resource": [
+                    {
+                      "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/alexaskills-dev-sayhello:*"
+                    },
+                    {
+                      "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/alexaskills-dev-saylove:*"
+                    }
+                  ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "logs:PutLogEvents"
+                  ],
+                  "Resource": [
+                    {
+                      "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/alexaskills-dev-sayhello:*:*"
+                    },
+                    {
+                      "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/alexaskills-dev-saylove:*:*"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "Path": "/",
+        "RoleName": {
+          "Fn::Join": [
+            "-",
+            [
+              "alexaskills",
+              "dev",
+              "us-east-1",
+              "lambdaRole"
+            ]
+          ]
+        }
+      }
+    },
+    "SayhelloLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/alexaskills/dev/1503740681271-2017-08-26T09:44:41.271Z/alexaskills-dev.jar"
+        },
+        "FunctionName": "alexaskills-dev-sayhello",
+        "Handler": "com.kyan.alexa.skill.sayhello.Handler",
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        },
+        "Runtime": "java8",
+        "Timeout": 6
+      },
+      "DependsOn": [
+        "SayhelloLogGroup",
+        "IamRoleLambdaExecution"
+      ]
+    },
+    "SayhelloLambdaVersion1uCJcQxkL76IderRzTiVj3I500bTzYhjI00ScBbo": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "SayhelloLambdaFunction"
+        },
+        "CodeSha256": "1uCJc/QxkL76IderRzTiVj/+3I500bTzYhjI00ScBbo="
+      }
+    },
+    "SayloveLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/alexaskills/dev/1503740681271-2017-08-26T09:44:41.271Z/alexaskills-dev.jar"
+        },
+        "FunctionName": "alexaskills-dev-saylove",
+        "Handler": "com.kyan.alexa.skill.saylove.Handler",
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        },
+        "Runtime": "java8",
+        "Timeout": 6
+      },
+      "DependsOn": [
+        "SayloveLogGroup",
+        "IamRoleLambdaExecution"
+      ]
+    },
+    "SayloveLambdaVersion1uCJcQxkL76IderRzTiVj3I500bTzYhjI00ScBbo": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "SayloveLambdaFunction"
+        },
+        "CodeSha256": "1uCJc/QxkL76IderRzTiVj/+3I500bTzYhjI00ScBbo="
+      }
+    }
+  },
+  "Outputs": {
+    "ServerlessDeploymentBucketName": {
+      "Value": {
+        "Ref": "ServerlessDeploymentBucket"
+      }
+    },
+    "SayhelloLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "SayhelloLambdaVersion1uCJcQxkL76IderRzTiVj3I500bTzYhjI00ScBbo"
+      }
+    },
+    "SayloveLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "SayloveLambdaVersion1uCJcQxkL76IderRzTiVj3I500bTzYhjI00ScBbo"
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../alexaskills/alexaskills.iml" filepath="$PROJECT_DIR$/../alexaskills/alexaskills.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../lexmodel/lexmodel.iml" filepath="$PROJECT_DIR$/../lexmodel/lexmodel.iml" />
+    </modules>
+  </component>
+</project>
